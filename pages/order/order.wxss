@@ -1,0 +1,37 @@
+/* 收获地址 */
+.adress{
+  height: 60px;
+  border-bottom: 10px solid  #f5f5f4;
+  border-top: 3px solid  #f5f5f4
+}
+.adress1{
+  color: red;
+  line-height: 60px;
+}
+.active{
+  color: black;
+  line-height: 0
+}
+.phone{
+  padding-left: 50px;
+}
+.detail{
+margin-top: 10px
+}
+/* 支付方式 */
+.pay1{
+  height: 40px;
+   border-bottom: 10px solid  #f5f5f4;
+}
+.pay2{
+ line-height: 40px
+}
+.icon-youjiantou:before{
+  content: '\e735';
+  margin-left: 230px;
+  }
+  .orderlist{
+    height: 30px;
+    border-bottom: 2px solid #f5f5f4;
+    line-height: 3 0px
+  }

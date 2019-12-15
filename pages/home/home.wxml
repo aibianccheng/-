@@ -1,0 +1,21 @@
+<!--轮播图-->
+ <view class='swiperBanner'>
+    <swiper indicator-dots	indicator-active-color="red" autoplay="true">
+      <swiper-item  wx:for="{{banner}}" wx:key='{{item}}'>
+          <image src="{{item.imgUrl }}" class="slide-image"></image> 
+      </swiper-item>
+    </swiper>
+</view>
+<!-- 分类导航 -->
+ <view>
+  <view class="navs">
+    <block wx:for-items="{{menus}}" wx:key="name">
+      <view class="nav-item"  data-type="{{item.classifyName}}" data-typeid="{{item.classifyId}}">
+        <navigator url="pages/classify/classify?classifyId={{item.classifyId}}">
+           <image src="{{item.classifyImgUrl}}" class="nav-image" />
+           <text>{{item.classifyName}}</text>
+        </navigator>
+      </view>
+    </block>
+  </view>
+ </view> 

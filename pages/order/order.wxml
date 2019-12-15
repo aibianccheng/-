@@ -1,0 +1,12 @@
+<view class="adress" bindtap="addadress">
+    <view class="adress2">
+    <text  class="adress1 {{myadress?'active':''}}">{{adress1}}</text>
+    <text class="phone">{{phone}}</text>
+    </view>
+    <view class="detail">{{provinceName}}{{cityName}}{{countyName}}{{detailInfo}}</view>
+</view>
+<view class="pay1">
+    <text class="pay2">支付方式</text>
+    <icon class="iconfont icon-youjiantou"></icon>
+</view>
+<view class="orderlist">订单列表</view>
