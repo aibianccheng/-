@@ -26,15 +26,15 @@
    <icon class="iconfont icon-youjiantou"></icon>
 </view>
 <!-- 详情和评论 -->
-<view >
+ <scroll-view scroll-y="true">
     <view  class="buju4">
     <block wx:for="{{text}}">
        <view class="text1 {{currentTab==index ?'active':''}}" bindtap="show" data-id="{{item}}" data-idx="{{index}}">{{item}}</view>
     </block>
     </view>
-    <image wx:for="{{url}}" src="{{item.src}}" wx:if="{{xiangqing}}"> </image>
+    <image wx:for="{{detailImg}}" src="{{item}}" wx:if="{{xiangqing}}"> </image>
    <view wx:if="{{pinglun}}">还没有用户评论哦</view>
-</view>
+</scroll-view>
 <!-- 底部悬浮窗 -->
 <view class="detail-nav">
   <image bindtap="tohome" src="../../images/home.png" />  
@@ -49,17 +49,17 @@
       <view class="dialog__container">
         <view class="row">
           <icon bindtap="closeDialog" class="image-close" type="cancel" size="25"/>
-          <image class="image-sku" src="{{standardList[currentTab1].img}}"></image>
+          <image class="image-sku" src="{{standardList[currentTab1].standardImg}}"></image>
           <view class="column">
-            <text class="sku-price">￥{{standardList[currentTab1].price}}</text>
-            <text class="sku-title">销量 {{goods.buyRate}} 件</text>
-            <text class="sku-title">商品编码：{{goods.goodsId}}</text>
+            <text class="sku-price">￥{{standardList[currentTab1].standardPrice}}</text>
+            <text class="sku-title">库存 {{standardList[currentTab1].standardStock}} 件</text>
+            <text class="sku-title">商品编码：{{standardList[currentTab1].standardId}}</text>
           </view>
         </view>
         <view>商品规格选择：</view>
        <scroll-view class="standardSelect" scroll-y="true">
-              <view wx:for="{{standardList}}" bindtap="standardSelect"  data-index="{{index}}" class="standardSelect1 {{ currentTab1==index?'active1':''}}"  data-price="{{item.price}}" data-img="{{item.img}}" data-id="{{item.id}}"
-              data-name="{{item.name}}">{{item.name}}</view>
+              <view wx:for="{{standardList}}" bindtap="standardSelect"  data-index="{{index}}" class="standardSelect1 {{ currentTab1==index?'active1':''}}"  data-price="{{item.standardPrice}}" data-img="{{item.standardImg}}" data-id="{{item.standardId}}" data-stock="{{item.standardStock}}"
+              data-name="{{item.standardName}}">{{item.standardName}}</view>
        </scroll-view>
         <text class="border-line"></text>
         <view class="row">

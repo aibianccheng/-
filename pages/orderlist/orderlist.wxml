@@ -1,2 +1,4 @@
-<!--pages/orderlist/orderlist.wxml-->
+<view>
+   <view>{{orderList}}</view>
+</view>
 

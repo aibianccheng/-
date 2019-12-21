@@ -109,7 +109,7 @@ page{
   margin-left: 100rpx;
   position: absolute;
   right: 30rpx;
-  margin-top: 30rpx; 
+  margin-top: 20rpx; 
 }
 .sku-price {
   color: red;
@@ -120,9 +120,13 @@ page{
   color: red;
   position: relative;
 }
-.title {
+.title{
+  margin-top: 20rpx;
+}
+.title1 {
   font-size: 32rpx;
-  margin-top: 40rpx;
+  margin-top: 20rpx;
+  color: rgb(148, 148, 148);
 }
 .small_text {
   font-size: 28rpx;

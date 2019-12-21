@@ -5,15 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classifyItems: [],
+    classifyItems:"",
     curNav: 1,
     curIndex: 0
   },
   switchRightTab: function (e) {
     console.log(e)
     // 获取item项的id，和数组的下标值  
-    let categoryType = e.target.dataset.id,
-      index = parseInt(e.target.dataset.index);
+    let categoryType = e.target.dataset.id
+    let index = parseInt(e.target.dataset.index);
     // 把点击到的某一项，设为当前index  
     this.setData({
       curNav: categoryType,
@@ -24,7 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    classifyId = options.classifyId;
+    
     var that = this;
     that.classifyShow();
   },
@@ -32,12 +32,12 @@ Page({
     var that = this;
     ajax.request({
       method: 'GET',
-      url: 'classify/getClassify?=' + classifyId,
+      url: 'wxShop/classify/getClassify',
       success: data => {
         that.setData({
-          classifyItems: data.result.classifyList
+          classifyItems: data.result[0].classifyList
         })
-        console.log(data.result)
+        console.log(data.result[0])
       }
     })
   },

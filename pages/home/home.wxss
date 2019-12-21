@@ -34,7 +34,8 @@ swiper {
   height: 80rpx;
   /* border-radius: 50%;设置边界圆角 */
 }
-.nav-item text {
-  padding-top: 20rpx;
+.nav-name{
   font-size: 25rpx;
+  padding-top: 20rpx;
+  text-align: center
 }

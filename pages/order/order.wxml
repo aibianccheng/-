@@ -10,3 +10,23 @@
     <icon class="iconfont icon-youjiantou"></icon>
 </view>
 <view class="orderlist">订单列表</view>
+<view class="show"  >
+    <block wx:for="{{orderArr}}">
+      <view class="row" >
+        <image src="{{item.img}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showproductName">{{item.productName}}</view>
+           <view class="showName">{{item.name}}</view>
+           <view class="showtotalMoney">¥{{item.totalMoney}}</view>
+        </view>
+        <view class="showCount">X{{item.count}}</view>
+      </view>
+    </block>
+</view>
+<view class="bottom">
+   <view class="price">
+    <text >合计:¥</text>
+    <text class="price1">{{totalMoney}}</text>
+    </view>
+    <button class="button-red" bindtap="submitOrder" formType="submit">提交订单</button>
+</view>

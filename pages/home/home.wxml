@@ -11,9 +11,9 @@
   <view class="navs">
     <block wx:for-items="{{menus}}" wx:key="name">
       <view class="nav-item"  data-type="{{item.classifyName}}" data-typeid="{{item.classifyId}}">
-        <navigator url="pages/classify/classify?classifyId={{item.classifyId}}">
-           <image src="{{item.classifyImgUrl}}" class="nav-image" />
-           <text>{{item.classifyName}}</text>
+        <navigator url="../../pages/classify/classify">
+           <image src="{{item.classifyImg}}" class="nav-image" />
+           <view class="nav-name">{{item.classifyName}}</view>
         </navigator>
       </view>
     </block>

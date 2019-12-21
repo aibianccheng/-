@@ -26,14 +26,15 @@ Page({
         that.setData({
           banners: data.result
         })
-        console.log(data.result)
+        console.log(data.result)  
       }
     })
   },
   menuShow: function (success) {
+    let that=this;
     ajax.request({
       method: 'GET',
-      url: 'home/menus',
+      url: 'wxShop/home/menus',
       success: data => {
         that.setData({
           menus: data.result

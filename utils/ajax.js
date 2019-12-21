@@ -1,5 +1,5 @@
   //const api = 'http://127.0.0.1:8082/wxShop/';
-const api = 'https://woai/wxShxiang.top/wxShop/';
+const api = 'https://woaixiang.top/';
 // common.js
 function request(opt) {
   // set token

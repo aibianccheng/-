@@ -48,8 +48,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/order/order",
-					"pathName": "pages/order/order",
+					"name": "pages/shopcar/shopcar",
+					"pathName": "pages/shopcar/shopcar",
 					"query": "",
 					"scene": null
 				}
