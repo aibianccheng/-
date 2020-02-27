@@ -1,22 +1,37 @@
 /* 收获地址 */
+pages{
+  margin :0;
+  padding: 0;
+}
 .adress{
-  height: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 80px;
   border-bottom: 10px solid  #f5f5f4;
-  border-top: 3px solid  #f5f5f4
+  margin-top: 15rpx;
 }
 .adress1{
+  font-size: 35rpx;
   color: red;
-  line-height: 60px;
+  line-height: 80px;
+  margin-left: 15rpx;
+}
+.adress2{
+  flex: 1;
 }
 .active{
   color: black;
   line-height: 0
 }
 .phone{
+  /* display: flex;
+  flex-direction: column; */
   padding-left: 50px;
 }
 .detail{
-margin-top: 10px
+  flex: 1;
+margin-top: 10px;
+margin-left: 15rpx;
 }
 /* 支付方式 */
 .pay1{
@@ -24,54 +39,70 @@ margin-top: 10px
    border-bottom: 10px solid  #f5f5f4;
 }
 .pay2{
- line-height: 40px
+ line-height: 40px;
+ margin-left: 15rpx;
+}
+.pay3{
+  float: right;
+  line-height: 40px;
+  padding-right: 20px;
 }
 .icon-youjiantou:before{
   content: '\e735';
   margin-left: 230px;
   }
   .orderlist{
-    height: 30px;
+    height: 40px;
     border-bottom: 2px solid #f5f5f4;
-    line-height: 3 0px
+    line-height: 40px;
+  }
+  .orderlist1{
+    margin-left: 15rpx;
   }
   .show{
     display: flex;
-    flex-direction: column;
-    height: 220rpx;
+    flex-direction:column;
+    background-color: #fafafa;
+  }
+  .shou{
+    display: flex;
+    flex-direction:column;
+    background-color: #fafafa;
   }
   .row{
-    background-color: #fafafa;
+    background-color:white;
     margin-bottom: 5rpx;
     display: flex;
     flex-direction: row;
+      height: 220rpx;
   }
   .showImg{
     height: 180rpx;
     width: 180rpx;
     margin-top: 20rpx;
-    margin-left: 10rpx
+    margin-left: 10rpx;
   }
   .show1{
     display: flex;
     flex-direction: column;
     margin-left: 20rpx;
+    flex: 4;
   }
   .showproductName{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
    margin-top: 15rpx;
   }
   .showName{
-    display: flex;
-    flex-direction: row;
-    font-size: 32rpx;
+    /* display: flex;
+    flex-direction: row; */
+    font-size: 25rpx;
     margin-top: 20rpx;
      color: rgb(148, 148, 148)
   }
   .showtotalMoney{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
      color: red;
      margin-top: 20rpx;
   }
@@ -79,6 +110,7 @@ margin-top: 10px
     display: flex;
     margin-left: 170rpx;
     line-height: 220rpx;
+    flex: 1;
   }
   .price {
  margin-left: 30rpx;
@@ -114,4 +146,26 @@ margin-top: 10px
   height: 120rpx;
   line-height: 120rpx;
   /* border: 1rpx solid #ccc; */
+}
+.showmore{
+  height: 50rpx;
+  border-bottom:2px solid #f5f5f4 ;
+  text-align: center;
+  background-color: #fcfcfc;
+}
+.liuyan{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 150rpx;
+  height: 60rpx;
+}
+.liuyan text{
+  line-height: 60rpx;
+  padding-left: 15rpx;
+}
+.liuyan1{
+  border: 1px solid #e7e7e7;
+  height: 60rpx;
+  width: 600rpx;
 }

@@ -1,1 +1,159 @@
 /* pages/orderlist/orderlist.wxss */
+.container{
+  display: flex;
+  height: 100rpx;
+  background-color: #fcfcfc;
+  flex-direction: row;
+  margin:0;
+  padding: 0;
+}
+.orderList{
+  flex: 1;
+  text-align: center;
+  line-height: 50rpx;
+}
+.active{
+  color: red
+}
+.container1{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 20rpx solid #f3f3f3;
+}
+.container2{
+  border-bottom: 1px solid #ebeaea;
+  height: 100rpx;
+}
+.container4{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.orderId{
+  line-height:100rpx ;
+  color: #3d3d3d;
+  font-size: 27rpx;
+  padding-left: 30rpx;
+}
+.nopay{
+  float: right;
+  margin-right:50rpx ;
+  line-height: 100rpx;
+  color: red;
+}
+.nofinish{
+  float: right;
+  margin-right:50rpx ;
+  line-height: 100rpx;
+  color: red;
+}
+.finish{
+  float: right;
+  margin-right:50rpx ;
+  line-height: 100rpx;
+  color: red;
+}
+ .cancel{
+  float: right;
+  margin-right:50rpx ;
+  line-height: 100rpx;
+  color: red;
+ }
+.xiangqing{
+  float: right;
+  margin-right:10rpx ;
+  height: 60rpx;
+  width:140rpx;
+  font-size: 25rpx;
+  margin-top: 25rpx;
+  background: none;
+  border: 1rpx solid #e6e4e4;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 10%;
+}
+.goPay{
+  float: right;
+  margin-right:10rpx ;
+  height: 60rpx;
+  width:140rpx;
+  font-size: 25rpx;
+  margin-top: 25rpx;
+  background: none;
+  border: 1px solid red;
+  color: red;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 10%;
+}
+.shouhuo{
+  float: right;
+  margin-right:10rpx ;
+  height: 60rpx;
+  width:140rpx;
+  font-size: 25rpx;
+  margin-top: 25rpx;
+  background: none;
+  border: 1px solid red;
+  color: red;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 10%;
+}
+.cancelOrder{
+  float: right;
+  margin-right:10rpx ;
+  height: 60rpx;
+  width:140rpx;
+  font-size: 25rpx;
+  margin-top: 25rpx;
+  background: none;
+  border: 1rpx solid #e6e4e4;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 10%;
+}
+.row{
+  background-color:white;
+  margin-bottom: 5rpx;
+  display: flex;
+  flex-direction: row;
+  height: 220rpx;
+  border-bottom: 1px solid #ebeaea
+}
+.showImg{
+  height: 180rpx;
+  width: 180rpx;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+}
+.show1{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  flex: 4;
+}
+.showName{
+  /* display: flex;
+  flex-direction: row; */
+  font-size: 25rpx;
+  margin-top: 60rpx;
+   color: rgb(148, 148, 148)
+}
+.showtotalMoney{
+  /* display: flex;
+  flex-direction: row; */
+   color: red;
+   margin-top: 20rpx;
+}
+.showCount{
+  display: flex;
+  margin-left: 170rpx;
+  line-height: 220rpx;
+  flex: 1;
+}
+.add{
+  padding-left: 30rpx;
+}
+.add1{
+  color: red;
+}

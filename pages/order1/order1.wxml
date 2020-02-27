@@ -1,0 +1,38 @@
+<view class="adress" bindtap="addadress">
+    <view class="adress2">
+    <text  class="adress1 {{myadress?'active':''}}">{{adress1}}</text>
+    <text class="phone">{{phone}}</text>
+    </view>
+    <view class="detail">{{provinceName}}{{cityName}}{{countyName}}{{detailInfo}}</view>
+</view>
+<view class="pay1">
+    <text class="pay2" bindtap="payWay">支付方式</text>
+    <text class="pay3">微信支付</text>
+   
+</view>
+<view class="orderlist">
+   <text class="orderlist1">订单列表</text>
+</view>
+<view class="show"  >
+      <view class="row" >
+        <image src="{{orderArr1.imgUrls}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showproductName">{{orderArr1.productName}}</view>
+           <view class="showName">{{orderArr1.name}}</view>
+           <view class="showtotalMoney">¥{{orderArr1.totalMoney}}</view>
+        </view>
+        <view class="showCount">X{{orderArr1.count}}</view>
+      </view>
+</view>
+<view class="liuyan">
+    <text>留言：</text>
+    <input placeholder="留言备注填写" class="liuyan1" bindinput="getValue"></input>
+</view>
+<view class="bottom">
+   <view class="price">
+    <text >合计:¥</text>
+    <text class="price1">{{orderArr1.totalMoney * orderArr1.count}}</text>
+    </view>
+    <button class="button-red" bindtap="submitOrder" formType="submit">提交订单</button>
+</view>
+

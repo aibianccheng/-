@@ -4,17 +4,25 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"coverView": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.4",
-	"appid": "wx102747a80458b0e1",
+	"appid": "wx9f4b374a055fb7cd",
 	"projectname": "%E5%95%86%E5%9F%8E",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -48,8 +56,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/shopcar/shopcar",
-					"pathName": "pages/shopcar/shopcar",
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
 					"query": "",
 					"scene": null
 				}

@@ -6,6 +6,6 @@
       <!-- 数值 -->  
       <input class="number" type="number" bindchange="bindManual" value="{{count}}"  disabled="disabled"/>  
       <!-- 加号 -->  
-      <text class="sign {{count >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}" data-name="{{item.name}}">+</text>  
+      <text class="sign {{count >= 1000 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}" data-name="{{item.name}}">+</text>  
   </view>  
 </template>

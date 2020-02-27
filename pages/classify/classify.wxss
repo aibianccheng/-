@@ -4,10 +4,10 @@ page{
 }  
 /*总体主盒子*/  
 .container {  
-  position: relative;  
+  /* position: relative;  
   width: 100%;  
   height: 100%;  
-  background-color: #fff;  
+  background-color: #fff;   */
   color: #939393;  
 }
  /*左侧栏主盒子*/  

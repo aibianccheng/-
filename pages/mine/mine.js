@@ -20,7 +20,7 @@ Page({
       },
       {
         typeId: 2,
-        name: '待评价',
+        name: '已完成',
         url: 'bill',
         imageurl: '../../images/person/personal_comment.png'
       },
@@ -44,10 +44,25 @@ Page({
     })
   },
   onLoad: function () {
+   
+  },
+  onShow(){
+    var openId=wx.getStorageSync('OpenId')
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
+      })
+      console.log(this.data.userInfo)
+      wx.request({
+        method:'POST',
+        url: 'https://woaixiang.top/user/message?userName='+this.data.userInfo.nickName+'&userOpenid='+openId+'&userImg='+this.data.userInfo.avatarUrl,
+        header:{
+          "Content-Type": "application/x-www-form-urlencoded;charset=utf-8" //post请求设置
+        },
+        success(res){
+          console.log(res)
+        }
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -81,6 +96,11 @@ Page({
   },
   myAddress: function (e) {
     wx.navigateTo({ url: '../addressList/addressList' });
+  },
+  moregn(){
+    wx.showToast({
+      title: '敬请关注',
+    })
   },
   /**
    * 用户点击右上角分享

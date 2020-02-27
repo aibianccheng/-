@@ -8,13 +8,17 @@
     "pages/address/address",
     "pages/addressList/addressList",
     "pages/orderlist/orderlist",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/order1/order1",
+    "pages/aboutUs/aboutUs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#f0145a",
+    "navigationBarTitleText": "快马商城",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0145a"
   },
   "tabBar": {
     "color": "#858585",

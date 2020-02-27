@@ -1,4 +1,109 @@
-<view>
-   <view>{{orderList}}</view>
+<view class="container">
+   <view wx:for="{{orderSort}}" wx:key="container" class="orderList {{current==index?'active':''}}" data-index="{{index}}"
+       data-name="{{item}}"  bindtap="switch" >{{item}}</view>
+</view>
+<!-- 待付款订单显示 -->
+<view class="container1"  wx:for="{{nopayArr}}"  wx:key="nopayArr" wx:for-item="detailItem" wx:if="{{noPay}}">
+    <view class="container2">
+      <text class="orderId">订单号：{{detailItem.orderId}}</text>
+      <text  class="nopay">待付款</text>
+    </view>
+    <view class="row" wx:for="{{detailItem.orderDetailList}}"  wx:key="prodcuctid">
+       <image src="{{item.productIcon}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showName">{{item.productName}}</view>
+           <view class="showtotalMoney">¥{{item.productPrice}}</view>
+        </view>
+        <view class="showCount">X{{item.productQuantity}}</view>
+    </view>
+      <view class="container4">
+        <text class="add">合计：</text>
+        <text class="add1">{{detailItem.orderAmount}}</text>
+        <text class="goPay" bindtap="goPay" data-orderId="{{detailItem.orderId}}">去付款</text>
+        <text class="cancelOrder"  bindtap="cancelOrder" data-orderId="{{detailItem.orderId}}">取消订单</text>
+         <text class="xiangqing" bindtap="lookDetail" data-orderId="{{detailItem.orderId}}">查看详情</text>
+      </view>
+</view>
+<!-- 待完成订单显示 -->
+<view class="container1"  wx:for="{{payArr}}" wx:key="payArr" wx:for-item="detailItem"  wx:if="{{noFinish}}">
+    <view class="container2">
+      <text class="orderId">订单号：{{detailItem.orderId}}</text>
+      <text  class="nofinish">待收货</text>
+    </view>
+    <view class="row" wx:for="{{detailItem.orderDetailList}}" wx:key="prodcuctid">
+       <image src="{{item.productIcon}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showName">{{item.productName}}</view>
+           <view class="showtotalMoney">¥{{item.productPrice}}</view>
+        </view>
+        <view class="showCount">X{{item.productQuantity}}</view>
+    </view>
+      <view class="container4">
+        <text class="add">合计：</text>
+        <text class="add1">{{detailItem.orderAmount}}</text>
+        <text class="shouhuo"   bindtap="shouhuo" data-orderId="{{detailItem.orderId}}">确认收货</text>
+         <text class="cancelOrder"  bindtap="refund" data-orderId="{{detailItem.orderId}}">退款</text>
+        <text class="xiangqing" bindtap="lookDetail" data-orderId="{{detailItem.orderId}}">查看详情</text>
+      </view>
+</view>
+<!-- 已完成订单显示 -->
+<view class="container1"  wx:for="{{finishArr}}" wx:key="finishArr" wx:for-item="detailItem"  wx:if="{{finish}}">
+    <view class="container2">
+      <text class="orderId">订单号：{{detailItem.orderId}}</text>
+      <text  class="finish">交易成功</text>
+    </view>
+    <view class="row" wx:for="{{detailItem.orderDetailList}}" wx:key="prodcuctid">
+       <image src="{{item.productIcon}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showName">{{item.productName}}</view>
+           <view class="showtotalMoney">¥{{item.productPrice}}</view>
+        </view>
+        <view class="showCount">X{{item.productQuantity}}</view>
+    </view>
+      <view class="container4">
+        <text class="add">合计：</text>
+        <text class="add1">{{detailItem.orderAmount}}</text>
+        <text class="xiangqing" bindtap="lookDetail" data-orderId="{{detailItem.orderId}}">查看详情</text>
+      </view>
+</view>
+<!-- 退款订单 -->
+<view class="container1"  wx:for="{{serviceArr}}" wx:key="cancelArr" wx:for-item="detailItem"  wx:if="{{afterService}}">
+    <view class="container2">
+      <text class="orderId">订单号：{{detailItem.orderId}}</text>
+      <text  class="cancel">退款中</text>
+    </view>
+    <view class="row" wx:for="{{detailItem.orderDetailList}}" wx:key="prodcuctid">
+       <image src="{{item.productIcon}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showName">{{item.productName}}</view>
+           <view class="showtotalMoney">¥{{item.productPrice}}</view>
+        </view>
+        <view class="showCount">X{{item.productQuantity}}</view>
+    </view>
+      <view class="container4">
+        <text class="add">合计：</text>
+        <text class="add1">{{detailItem.orderAmount}}</text>
+        <text class="xiangqing" bindtap="lookDetail" data-orderId="{{detailItem.orderId}}">查看详情</text>
+      </view>
+</view>
+<!-- 已取消订单 -->
+<view class="container1"  wx:for="{{cancelArr}}" wx:key="cancelArr" wx:for-item="detailItem"  wx:if="{{cancelOrder}}">
+    <view class="container2">
+      <text class="orderId">订单号：{{detailItem.orderId}}</text>
+      <text  class="cancel">取消成功</text>
+    </view>
+    <view class="row" wx:for="{{detailItem.orderDetailList}}" wx:key="prodcuctid">
+       <image src="{{item.productIcon}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showName">{{item.productName}}</view>
+           <view class="showtotalMoney">¥{{item.productPrice}}</view>
+        </view>
+        <view class="showCount">X{{item.productQuantity}}</view>
+    </view>
+      <view class="container4">
+        <text class="add">合计：</text>
+        <text class="add1">{{detailItem.orderAmount}}</text>
+        <text class="xiangqing" bindtap="lookDetail" data-orderId="{{detailItem.orderId}}">查看详情</text>
+      </view>
 </view>
 

@@ -1,0 +1,75 @@
+/* pages/orderDetail/orderDetail.wxss */
+.state{
+  height: 100rpx;
+  background-color: #f2f2f2;
+  line-height: 100rpx;
+}
+.state1{
+  padding-left:10rpx ;
+  font-size: 30rpx;
+  color: #504f4f;
+}
+.status{
+  color: red;
+  padding-left: 10rpx;
+}
+.contain{
+  height: 150rpx;
+  padding-left: 10rpx;
+  border-bottom: 20rpx solid #f2f2f2;
+  font-size: 30rpx;
+}
+.line{
+  padding-top: 15rpx;
+}
+.contain1{
+  height: 150rpx;
+  border-bottom: 20rpx solid #f2f2f2;
+  padding-left: 10rpx;
+  padding-top: 18rpx;
+  font-size: 30rpx;
+}
+.order{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 10rpx;
+}
+.row{
+  background-color:white;
+  margin-bottom: 5rpx;
+  display: flex;
+  flex-direction: row;
+  height: 220rpx;
+  border-top: 1px solid #ebeaea;
+}
+.showImg{
+  height: 180rpx;
+  width: 180rpx;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+}
+.show1{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  flex: 4;
+}
+.showName{
+  /* display: flex;
+  flex-direction: row; */
+  font-size: 25rpx;
+  margin-top: 60rpx;
+   color: rgb(148, 148, 148)
+}
+.showtotalMoney{
+  /* display: flex;
+  flex-direction: row; */
+   color: red;
+   margin-top: 20rpx;
+}
+.showCount{
+  display: flex;
+  margin-left: 170rpx;
+  line-height: 220rpx;
+  flex: 1;
+}

@@ -101,8 +101,8 @@ page{
 .row {
   display: flex;
   flex-direction: row;
-   align-items: center;
-    /* margin-top: 40rpx;  */
+  align-items:center;
+    margin-top: 15rpx; 
   /* border: 1rpx solid #000000;  */
 }
 .sku {
@@ -113,8 +113,9 @@ page{
 }
 .sku-price {
   color: red;
-  position: relative;
+  /* position: relative; */
    margin-top: 30rpx; 
+
 }
 .price {
   color: red;
@@ -122,11 +123,13 @@ page{
 }
 .title{
   margin-top: 20rpx;
+  /* flex: 1; */
 }
 .title1 {
-  font-size: 32rpx;
+  font-size: 27rpx;
   margin-top: 20rpx;
   color: rgb(148, 148, 148);
+  /* flex: 1; */
 }
 .small_text {
   font-size: 28rpx;

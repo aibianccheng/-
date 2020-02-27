@@ -24,7 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    wx.setNavigationBarTitle({
+      title: '商品分类'
+    })
     var that = this;
     that.classifyShow();
   },
@@ -34,10 +36,11 @@ Page({
       method: 'GET',
       url: 'wxShop/classify/getClassify',
       success: data => {
+        console.log(data)
         that.setData({
           classifyItems: data.result[0].classifyList
         })
-        console.log(data.result[0])
+        console.log(that.data.classifyItems)
       }
     })
   },

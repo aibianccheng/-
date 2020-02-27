@@ -1,4 +1,4 @@
-// const ajax = require('../../utils/ajax.js');
+// pages/order1/order1.js
 var app = getApp();
 var totalMoney=5;
 let product=[];
@@ -11,28 +11,12 @@ Page({
   data: {
      adress1:"请选择收货地址",
      myadress:false,
-     orderArr:"",
-     switch:"",
-     switch1:"",
+     orderArr1:"",
   },
 onLoad(opt){
   var that = this;  
    totalMoney = opt.totalMoney
   console.log(totalMoney)
-},
-switch(){
-  if(this.data.switch=="展开更多"){
-    this.setData({
-      switch:"点击收起"
-    })
-  }else{
-    this.setData({
-      switch:"展开更多"
-    })
-  }
-  this.setData({
-    switch2:!this.data.switch2
-  })
 },
   //收货地址
   addadress(){
@@ -52,27 +36,16 @@ switch(){
       }
     })
   },
-  //用户留言内容
-  getValue(event){
-     console.log(event.detail.value)
-     var value=event.detail.value
-     this.setData({
-       value:value,
-     })
-  },
+   //用户留言内容
+   getValue(event){
+    console.log(event.detail.value)
+    var value=event.detail.value
+    this.setData({
+      value:value,
+    })
+ },
   //提交订单
   submitOrder(){
-    var orderArr=app.globalData.orderArr 
-    console.log(orderArr)
-    var orderArr1=wx.getStorageSync('cart')
-    for(let i in orderArr){
-      for(let o in orderArr1){
-        if(orderArr1[o].id==orderArr[i].standardId){
-          orderArr1.splice(o,1)
-        }
-      }
-    }
-    wx.setStorageSync('cart', orderArr1)
     let data={
       name: this.data.adress1,
       phone: this.data.phone,
@@ -82,10 +55,10 @@ switch(){
       items:JSON.stringify(product)
  }
   console.log(data)
-  if(data.name=="请选择收货地址"|| data.phone=="undefined"||data.address=="NaN"){
+  if(data.name=="请选择收货地址"||data.phone=="undefined"||data.address=="NaN"){
     wx.showToast({
-      title: '请选择收货电话地址',
-      icon:"none",
+      title: '请选择电话收货地址',
+      icon:"none"
     })
   }else{
     wx.request({
@@ -112,7 +85,7 @@ switch(){
        // }
        wx.request({
          method:'GET',
-         url:'https://woaixiang.top/payTest/createPay?orderId='+orderId+'&returnUrl=woaixiang.top',
+         url:'https://woaixiang.top/payTest/createPay?orderId='+orderId,
          header:{
            'content-type':"application/json",
          }, 
@@ -169,39 +142,23 @@ switch(){
     })
   }
   },
-  onShow(){ 
-    var orderArr=app.globalData.orderArr 
+  onShow(){
+    var orderArr1=app.globalData.orderArr1 
     var openId = wx.getStorageSync('OpenId')
-    console.log(openId)
+    console.log(orderArr1)
     this.setData({
-      orderArr: orderArr,
+      orderArr1: orderArr1,
       totalMoney: totalMoney,
       openId: openId,
     })
-    console.log(this.data.orderArr)
+    console.log(this.data.orderArr1)
     console.log(app.globalData.userInfo)
     product=[];
-    for (let i in this.data.orderArr){
       var productList={
-            standardId:this.data.orderArr[i].standardId,
-            productQuantity:this.data.orderArr[i].count
+            standardId:this.data.orderArr1.id,
+            productQuantity:this.data.orderArr1.count
       }
       product.push(productList)
-    }
-    if(orderArr.length>1){
-      this.setData({
-        switch:"展开更多",
-        switch1:true,
-        switch2:false,
-        orderArr1:orderArr[0]
-      })
-      console.log(this.data.orderArr1)
-    }else{
-      this.setData({
-        switch1:false,
-        switch2:true,
-      })
-    }
-    // console.log(product)
+    console.log(product)
   }
 })

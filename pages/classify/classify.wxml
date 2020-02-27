@@ -1,23 +1,23 @@
 <!--主盒子-->
 <view class="container">
   <!--左侧栏-->
-  <view class="nav_left">
+  <scroll-view class="nav_left" scroll-y="true">
     <block wx:for="{{classifyItems}}">
       <view class="nav_left_items {{curNav == item.categoryType ? 'active' : ''}}"   bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.categoryType}}">
           {{item.categoryName}}
         </view>
     </block>
-  </view>
- </view> 
-  <!--右侧栏-->
-  <view class="nav_right">
-     <block wx:for="{{classifyItems[curIndex].shopGoodsList}}" >
-        <view class="nav_right_items">
+  </scroll-view>
+</view> 
+<!--右侧栏-->
+<view class="nav_right">
+    <block wx:for="{{classifyItems[curIndex].shopGoodsList}}" >
+       <view class="nav_right_items">
         <!--界面跳转 -->
           <navigator url="../../pages/detail/detail?productId={{item.productId}}">
-            <image src="{{item.producticon}}" ></image>
-            <text>{{item.productName}}</text>
+             <image src="{{item.productIcon}}" ></image>
+             <text>{{item.productName}}</text>
           </navigator>
-        </view>
-      </block>
-  </view>
+       </view>
+    </block>
+</view>

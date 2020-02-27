@@ -1,51 +1,113 @@
 <!-- 轮播图 -->
 <swiper indicator-dots	indicator-active-color="red" autoplay="true" interval="3000" duration="1000">
-  <block wx:for="{{goods.imgUrls}}">
+  <block wx:for="{{imgUrls}}">
     <swiper-item>
-      <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" mode="widthFix"></image>
+      <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" ></image>
     </swiper-item>
   </block>
 </swiper>
 <!--商品价格和商品描述-->
-<view>
-<view class="product-name-wrap">
-    {{goods.title}}
-  </view>
+<view class="product-contain">
     <view class="product-price-wrap">
-      <view>
+        <p class="product1">年货价：</p>
         <p class="product-price-new">￥{{goods.price}}</p>  
-        <p class="product-price-old">原价￥{{goods.privilegePrice}}</p> 
-        <p class="product-sell">销量：{{sell}}</p>
-      </view>
+        <view class="product-price-old">原价￥{{goods.privilegePrice}}</view> 
+        <view class="product-sell">销量：{{goods.sellAmount}}</view>
     </view>
+    <view class="product2">
+      <view class="xiushi"></view>
+    </view>
+    <view class="product3">
+      <text class="kuaima">快马商城</text>
+      <view class="qiang">正在疯抢中...</view>
+    </view>
+ </view>
+ <view class="title">
+    <view class="kydj">
+    <text>快马</text>
+    </view>
+    <view class="product-name-wrap">{{goods.title}}</view>
+ </view>
+ <view class="chengNuo">
+   <view class="dui">
+       <text class="dui1">✔</text>
+   </view>
+    <view class="zheng">正品保障</view>
+    <view class="dui">
+       <text class="dui1">✔</text>
+   </view>
+   <view class="dang">当天送货上门</view>
+   <view class="dui">
+       <text class="dui1">✔</text>
+   </view>
+    <view class="tui">可退换</view>
  </view>
 <!-- 规格选择 -->
 <view class="buju3" bindtap="toggleDialog">
      <text class="xuanze">选择</text>
      <text class="guige">规格</text>
-   <icon class="iconfont icon-youjiantou"></icon>
 </view>
 <!-- 详情和评论 -->
  <scroll-view scroll-y="true">
     <view  class="buju4">
-    <block wx:for="{{text}}">
-       <view class="text1 {{currentTab==index ?'active':''}}" bindtap="show" data-id="{{item}}" data-idx="{{index}}">{{item}}</view>
-    </block>
+      <block wx:for="{{text}}">
+         <view class="text1"  bindtap="show" data-id="{{item}}" data-idx="{{index}}">
+            <view class="text2">{{item}}</view>
+            <view class="{{currentTab==index ?'active':''}}"></view>
+         </view>
+      </block>
     </view>
-    <image wx:for="{{detailImg}}" src="{{item}}" wx:if="{{xiangqing}}"> </image>
-   <view wx:if="{{pinglun}}">还没有用户评论哦</view>
+    <image wx:for="{{detailImg}}" src="{{item}}" wx:if="{{xiangqing}}" class="xqimg"> </image>
+    <view wx:if="{{pinglun}}" class="pinglun">该功能尚未开放</view>
 </scroll-view>
 <!-- 底部悬浮窗 -->
 <view class="detail-nav">
-  <image bindtap="tohome" src="../../images/home.png" />  
-  <view class="line_nav"></view>
+   <image bindtap="tohome" src="../../images/home.png" />  
+   <view class="line_nav"></view>
    <image bindtap="tocar" src="../../images/cart1.png" /> 
-  <button data-goodid="1"  class="button-green" bindtap="toggleDialog" >加入购物车</button>
-  <button class="button-red" bindtap="toggleDialog" formType="submit">立即购买</button>
+   <button data-goodid="1"  class="button-green" bindtap="toggleDialog" >加入购物车</button>
+   <button class="button-red" bindtap="toggleDialog1" formType="submit">立即购买</button>
 </view>
 <!--加入购物车-->
 <view class="dialog {{ showDialog ? 'dialog--show' : '' }}">
       <view class="dialog__mask" bindtap="toggleDialog" />
+        <view class="dialog__container">
+          <view class="row">
+            <icon bindtap="closeDialog" class="image-close" type="cancel" size="25"/>
+            <image class="image-sku" src="{{standardList[currentTab1].standardImg}}" bindtap="preview" data-src="{{standardList[currentTab1].standardImg}}"></image>
+            <view class="column">
+              <text class="sku-price">￥{{standardList[currentTab1].standardPrice}}</text>
+              <text class="sku-title">库存 {{standardList[currentTab1].standardStock}} 件</text>
+              <text class="sku-title">商品编码：{{standardList[currentTab1].standardId}}</text>
+            </view>
+          </view>
+          <view>商品规格选择：</view>
+          <scroll-view class="standardSelect" scroll-y="true">
+              <view wx:for="{{standardList}}" bindtap="standardSelect"  data-index="{{index}}" class="standardSelect1 {{ currentTab1==index?'active1':''}}"  data-price="{{item.standardPrice}}" data-img="{{item.standardImg}}" data-id="{{item.standardId}}" data-stock="{{item.standardStock}}"
+              data-name="{{item.standardName}}">{{item.standardName}}</view>
+          </scroll-view>
+          <text class="border-line"></text>
+          <view class="row">
+             <text>购买数量</text>
+             <view class="quantity-position">
+             <!-- 主容器 -->  
+                <view class="stepper">  
+                   <!-- 减号 -->  
+                   <text class="sign {{count <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" >-</text>  
+                   <!-- 数值 -->  
+                   <input class="number" type="number" bindchange="bindManual" value="{{count}}"  disabled="disabled"/>  
+                   <!-- 加号 -->  
+                   <text class="sign {{count >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}">+</text>  
+                </view> 
+             </view>
+          </view>
+        <text class="border-line"></text>
+        <button data-goodid="{{goods.goodsId}}" class="button-addCar" bindtap="addCar" formType="submit">加入购物车</button>
+      </view>
+</view>
+<!-- 立即购买 -->
+<view class="dialog {{ showDialog1? 'dialog--show' : '' }}">
+      <view class="dialog__mask" bindtap="toggleDialog1" />
       <view class="dialog__container">
         <view class="row">
           <icon bindtap="closeDialog" class="image-close" type="cancel" size="25"/>
@@ -67,20 +129,20 @@
           <text>购买数量</text>
           <view class="quantity-position">
               <!-- 主容器 -->  
-  <view class="stepper">  
-      <!-- 减号 -->  
-      <text class="sign {{count <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" >-</text>  
-      <!-- 数值 -->  
-      <input class="number" type="number" bindchange="bindManual" value="{{count}}"  disabled="disabled"/>  
-      <!-- 加号 -->  
-      <text class="sign {{count >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}">+</text>  
-  </view> 
-          </view>
+              <view class="stepper">  
+              <!-- 减号 -->  
+                 <text class="sign {{count <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" >-</text>  
+                 <!-- 数值 -->  
+                 <input class="number" type="number" bindchange="bindManual" value="{{count}}"  disabled="disabled"/>  
+                 <!-- 加号 -->  
+                 <text class="sign {{count >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}">+</text>  
+          </view> 
         </view>
-        <text class="border-line"></text>
-        <button data-goodid="{{goods.goodsId}}" class="button-addCar" bindtap="addCar" formType="submit">确定</button>
       </view>
-    </view>
+        <text class="border-line"></text>
+        <button data-goodid="{{goods.goodsId}}" class="button-addCar" bindtap="toBuy">立即购买</button>
+  </view>
+</view>
     <!-- 立即购买
     <view class="dialog {{ showDialog ? 'dialog--show' : '' }}">
       <view class="dialog__mask" bindtap="toggleDialog" />

@@ -1,8 +1,8 @@
 <!--轮播图-->
  <view class='swiperBanner'>
     <swiper indicator-dots	indicator-active-color="red" autoplay="true">
-      <swiper-item  wx:for="{{banner}}" wx:key='{{item}}'>
-          <image src="{{item.imgUrl }}" class="slide-image"></image> 
+      <swiper-item  wx:for="{{banners}}" wx:key='{{item}}'>
+          <image src="{{item.bannerImg }}" class="slide-image"></image> 
       </swiper-item>
     </swiper>
 </view>
@@ -10,12 +10,23 @@
  <view>
   <view class="navs">
     <block wx:for-items="{{menus}}" wx:key="name">
-      <view class="nav-item"  data-type="{{item.classifyName}}" data-typeid="{{item.classifyId}}">
-        <navigator url="../../pages/classify/classify">
+      <view class="nav-item"  data-type="{{item.classifyName}}" data-typeid="{{item.classifyId}}" data-index="{{index}}" bindtap="getMenus">
            <image src="{{item.classifyImg}}" class="nav-image" />
            <view class="nav-name">{{item.classifyName}}</view>
-        </navigator>
       </view>
     </block>
   </view>
  </view> 
+ <!-- 每日推荐 -->
+ <view class="recommend">
+    <text>---------------</text>
+    <text class="recommend1">每日推荐</text>
+    <text>---------------</text>
+ </view>
+ <view wx:for="{{recommend}}" wx:key="recommend" class="recommend2">
+    <view class="recommend3">
+       <image src="{{item. productIcon}}" bindtap="goDetail" data-productId="{{item.productId}}"></image>
+       <view class="hot-name">{{item.productName}}</view>
+       <view class="hot-price">¥：{{item.productPrice}}</view>
+    </view>
+ </view>

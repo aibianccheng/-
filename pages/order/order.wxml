@@ -1,20 +1,30 @@
+<!-- <view class="adress" bindtap="addadress">
+    <view class="adress2">
+    <text  class="adress1 {{myadress?'active':''}}">{{adress1}}</text>
+    <text class="phone">{{phone}}</text>
+    </view> 
+    <view class="detail">{{provinceName}}{{cityName}}{{countyName}}{{detailInfo}}</view>
+</view> -->
 <view class="adress" bindtap="addadress">
     <view class="adress2">
     <text  class="adress1 {{myadress?'active':''}}">{{adress1}}</text>
     <text class="phone">{{phone}}</text>
-    </view>
+    </view> 
     <view class="detail">{{provinceName}}{{cityName}}{{countyName}}{{detailInfo}}</view>
 </view>
 <view class="pay1">
-    <text class="pay2">支付方式</text>
-    <icon class="iconfont icon-youjiantou"></icon>
+    <text class="pay2" bindtap="payWay">支付方式</text>
+    <text class="pay3">微信支付</text>
 </view>
-<view class="orderlist">订单列表</view>
-<view class="show"  >
+<view class="orderlist">
+   <text class="orderlist1">订单列表</text>
+</view>
+<view  wx:if="{{switch2}}">
+  <view class="show " >
     <block wx:for="{{orderArr}}">
-      <view class="row" >
+      <view class="row">
         <image src="{{item.img}}" class="showImg"></image>
-        <view class="show1" >
+        <view class="show1">
            <view class="showproductName">{{item.productName}}</view>
            <view class="showName">{{item.name}}</view>
            <view class="showtotalMoney">¥{{item.totalMoney}}</view>
@@ -22,6 +32,23 @@
         <view class="showCount">X{{item.count}}</view>
       </view>
     </block>
+  </view>
+</view>
+<view class="shou " wx:if="{{!switch2}}">
+      <view class="row">
+        <image src="{{orderArr1.img}}" class="showImg"></image>
+        <view class="show1" >
+           <view class="showproductName">{{orderArr1.productName}}</view>
+           <view class="showName">{{orderArr1.name}}</view>
+           <view class="showtotalMoney">¥{{orderArr1.totalMoney}}</view>
+        </view>
+        <view class="showCount">X{{orderArr1.count}}</view>
+      </view>
+</view>
+<view class="showmore" bindtap="switch" wx:if="{{switch1}}">{{switch}}</view>
+<view class="liuyan">
+    <text>留言：</text>
+    <input placeholder="留言备注" class="liuyan1" bindinput="getValue"></input>
 </view>
 <view class="bottom">
    <view class="price">
